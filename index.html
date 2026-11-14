@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Colada de Carmina</title>
+<meta name="description" content="Lavandería autoservicio en Patraix, València. Lava tu ropa en 30 minutos. Abierto de 8:00 a 22:00, los 365 días del año.">
+<meta name="theme-color" content="#2E9FB4">
+<meta property="og:title" content="La Colada de Carmina">
+<meta property="og:description" content="Lavandería autoservicio en Patraix, València. Abierto de 8:00 a 22:00, los 365 días del año.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2318246B'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23fff' stroke-width='7'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%232E9FB4'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DryCleaningOrLaundry","name":"La Colada de Carmina","description":"Lavandería autoservicio","telephone":"+34630204578","address":{"@type":"PostalAddress","streetAddress":"Carrer José María Mortes Lerma, 19","postalCode":"46014","addressLocality":"València","addressCountry":"ES"},"openingHours":"Mo-Su 08:00-22:00","sameAs":["https://www.instagram.com/lacoladadecarmina"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<style>
+/* Idea: la misma base del local (turquesa de las paredes, azul marino del rótulo,
+   fotos reales) con acabado actual: paneles redondeados, sombras suaves y botones
+   en forma de píldora. Un solo tema, a propósito. */
+:root{
+  --fondo:#F1F7F9;
+  --pared:#2E9FB4;
+  --pared-clara:#DFF1F5;
+  --marino:#18246B;
+  --blanco:#FFFFFF;
+  --tinta:#111838;
+  --tinta-suave:#56607F;
+  --linea:#D8E8ED;
+  --radio:22px;
+  --sombra:0 14px 34px rgba(17,24,56,.10);
+  --letra:"Manrope","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--letra);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--marino);outline-offset:3px;border-radius:8px}
+.marino a:focus-visible,.marino button:focus-visible,.barra a:focus-visible{outline-color:var(--blanco)}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+.ancho{width:min(1080px,100% - 32px);margin-inline:auto}
+section{padding:64px 0;scroll-margin-top:70px}
+h2{font-size:clamp(1.9rem,6.4vw,2.8rem);font-weight:800;line-height:1.05;letter-spacing:-.035em;color:var(--marino)}
+.pared h2,.marino h2{color:var(--blanco)}
+.entrada{margin-top:10px;max-width:34rem;color:var(--tinta-suave)}
+.pared .entrada{color:var(--tinta);font-weight:500}
+.marino .entrada{color:#C9D3F5}
+
+.placa{display:inline-flex;align-items:center;background:var(--pared-clara);color:var(--marino);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;line-height:1.2;padding:7px 12px;border-radius:999px;text-decoration:none}
+.marco{border-radius:28px;overflow:hidden;border:6px solid var(--blanco);box-shadow:0 22px 48px rgba(17,24,56,.20);background:var(--blanco)}
+.marco img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .6s ease}
+.marco:hover img{transform:scale(1.04)}
+
+.borrador{background:var(--tinta);color:var(--blanco);font-size:.82rem;text-align:center;padding:7px 16px}
+
+/* Barra de arriba, se queda fija al bajar */
+.cima{position:sticky;top:0;z-index:6;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(17,24,56,.08)}
+.cima-fila{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:60px}
+.marca{font-weight:800;font-size:1.08rem;letter-spacing:-.03em;text-decoration:none;color:var(--marino);white-space:nowrap}
+.marca span{color:var(--pared)}
+.cima-enlaces{display:flex;gap:26px;font-weight:600;font-size:.93rem}
+.cima-enlaces a{text-decoration:none;color:var(--tinta-suave)}
+.cima-enlaces a:hover{color:var(--marino)}
+.cima-llamar{background:var(--marino);color:var(--blanco);text-decoration:none;font-weight:700;font-size:.9rem;padding:9px 18px;border-radius:999px;white-space:nowrap}
+@media (max-width:820px){.cima-enlaces{display:none}}
+
+/* Portada */
+.pared{background:radial-gradient(900px 500px at 85% -10%,#5CC3D3 0,rgba(92,195,211,0) 60%),linear-gradient(165deg,#31A6BB 0,#2090A6 100%)}
+header.pared{border-radius:0 0 40px 40px}
+.portada{padding:44px 0 104px}
+.portada-rejilla{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media (max-width:820px){.portada-rejilla{grid-template-columns:1fr;gap:30px}.portada{padding-top:30px}}
+@keyframes entrar{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.portada-rejilla > *{animation:entrar .7s cubic-bezier(.2,.7,.2,1) both}
+.portada-rejilla > *:nth-child(2){animation-delay:.15s}
+.portada .placa{background:var(--blanco)}
+h1{font-size:clamp(2.9rem,12.5vw,5.4rem);font-weight:800;line-height:.95;letter-spacing:-.05em;color:var(--blanco);margin-top:18px}
+h1 span{color:var(--marino);display:block}
+.lema{font-size:clamp(1.15rem,4.4vw,1.4rem);font-weight:600;color:var(--tinta);margin-top:18px;letter-spacing:-.01em}
+.avisos{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.aviso{background:rgba(255,255,255,.92);color:var(--marino);font-weight:700;font-size:.9rem;padding:8px 15px;border-radius:999px;display:inline-flex;align-items:center;gap:9px;box-shadow:0 6px 16px rgba(17,24,56,.12)}
+.aviso i{width:9px;height:9px;border-radius:50%;background:#1F9D55;flex:none;box-shadow:0 0 0 4px rgba(31,157,85,.2)}
+.aviso.cerrado i{background:#C8372D;box-shadow:0 0 0 4px rgba(200,55,45,.2)}
+.botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 26px;font-weight:700;text-decoration:none;border-radius:999px;background:var(--blanco);color:var(--marino);transition:transform .2s ease,box-shadow .2s ease}
+.boton.lleno{background:var(--marino);color:var(--blanco)}
+.boton:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(17,24,56,.22)}
+
+/* Tres datos, montados sobre el borde de la portada */
+.datos{margin-top:-60px;position:relative}
+.datos-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.datos-rejilla > div{background:var(--blanco);border-radius:var(--radio);box-shadow:var(--sombra);padding:18px 10px;text-align:center}
+.datos b{display:block;font-size:clamp(1.25rem,5.6vw,2.3rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--marino);white-space:nowrap}
+.datos span{display:block;font-size:clamp(.68rem,2.7vw,.86rem);font-weight:600;color:var(--tinta-suave);margin-top:6px}
+
+/* Precios */
+.precios-rejilla{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start;margin-top:32px}
+@media (max-width:820px){.precios-rejilla{grid-template-columns:1fr;gap:30px}.precios-rejilla .marco{order:2}}
+.elige{margin-bottom:22px}
+.elige-titulo{font-weight:800;font-size:1.1rem;color:var(--marino);letter-spacing:-.01em}
+.elige-botones{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+button{font:inherit;cursor:pointer}
+.elige-botones button{background:var(--blanco);color:var(--marino);border:1.5px solid var(--linea);border-radius:999px;font-weight:700;font-size:.9rem;min-height:44px;padding:8px 16px;transition:background .15s ease,border-color .15s ease}
+.elige-botones button:hover{border-color:var(--marino)}
+.elige-botones button[aria-pressed="true"]{background:var(--marino);border-color:var(--marino);color:var(--blanco)}
+.elige-resultado{margin-top:14px;font-weight:600;min-height:1.6em}
+.maquinas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.maquinas{grid-template-columns:1fr}}
+.maquina{background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--radio);padding:18px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.maquina:hover{transform:translateY(-2px);box-shadow:var(--sombra)}
+.precio{font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--marino);font-variant-numeric:tabular-nums}
+.maquina p{font-size:.93rem;color:var(--tinta-suave)}
+.maquina.recomendada{border-color:var(--marino);background:var(--pared-clara);box-shadow:var(--sombra)}
+.maquina.recomendada .placa{background:var(--marino);color:var(--blanco)}
+.maquina.recomendada::after{content:"Esta es la tuya";font-weight:800;font-size:.9rem;color:var(--marino)}
+.otros{list-style:none;margin:16px 0 0;padding:0}
+.otros li{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid var(--linea);font-weight:600}
+.otros b{color:var(--marino);font-weight:800;white-space:nowrap}
+.nota{font-size:.86rem;color:var(--tinta-suave);margin-top:16px}
+
+/* Paneles redondeados: cómo funciona y qué puedes lavar */
+section.marino,section.pared{background:none;padding:14px 0}
+section.marino > .ancho,section.pared > .ancho{border-radius:36px;padding:clamp(34px,6vw,60px) clamp(20px,5vw,60px)}
+section.marino > .ancho{background:var(--marino);color:var(--blanco)}
+section.pared > .ancho{background:radial-gradient(700px 400px at 100% 0,#5CC3D3 0,rgba(92,195,211,0) 60%),linear-gradient(165deg,#31A6BB 0,#2090A6 100%)}
+.pasos-rejilla{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center;margin-top:30px}
+@media (max-width:820px){.pasos-rejilla{grid-template-columns:1fr;gap:30px}}
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.pasos li{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center}
+.pasos .n{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);color:#8FE0EC;font-weight:800;font-size:1.25rem}
+.pasos h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+.pasos p{color:#C9D3F5;font-size:.95rem}
+.marino .marco{border-color:rgba(255,255,255,.16);background:none}
+
+.reloj{margin-top:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center}
+@media (max-width:700px){.reloj{grid-template-columns:1fr}}
+.reloj h3{font-size:1.2rem;font-weight:700}
+.reloj p{color:#C9D3F5;font-size:.95rem;margin-top:4px}
+.reloj-botones{display:flex;flex-wrap:wrap;gap:8px}
+.reloj button{background:var(--blanco);color:var(--marino);border:0;border-radius:999px;font-weight:700;font-size:.92rem;min-height:46px;padding:8px 20px;transition:background .15s ease}
+.reloj button:hover{background:#8FE0EC}
+.reloj-cuenta{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;border-top:1px solid rgba(255,255,255,.18);padding-top:20px}
+.reloj-cuenta[hidden]{display:none}
+.reloj-tiempo{font-size:clamp(3.2rem,16vw,5rem);font-weight:800;letter-spacing:-.05em;line-height:.9;color:#8FE0EC;font-variant-numeric:tabular-nums}
+.reloj-cuenta.lista .reloj-tiempo{color:var(--blanco)}
+#reloj-texto{flex:1;min-width:12rem;font-weight:600}
+.reloj #reloj-parar{background:rgba(255,255,255,.12);color:var(--blanco)}
+.reloj #reloj-parar:hover{background:rgba(255,255,255,.24)}
+
+.servicios-rejilla{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;margin-top:30px}
+@media (max-width:820px){.servicios-rejilla{grid-template-columns:1fr;gap:28px}}
+.cabe{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cabe li{background:rgba(255,255,255,.92);color:var(--marino);font-weight:700;font-size:.9rem;padding:8px 16px;border-radius:999px}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+@media (max-width:480px){.extras{grid-template-columns:1fr}}
+.extra{background:var(--blanco);border-radius:var(--radio);padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:0 10px 24px rgba(17,24,56,.12)}
+.extra h3{font-size:1.1rem;font-weight:800;color:var(--marino);letter-spacing:-.01em}
+.extra p{font-size:.94rem;color:var(--tinta-suave)}
+
+/* Preguntas */
+.preguntas{margin-top:26px;max-width:46rem;display:grid;gap:10px}
+.preguntas details{background:var(--blanco);border:1.5px solid var(--linea);border-radius:18px;transition:box-shadow .2s ease}
+.preguntas details[open]{box-shadow:var(--sombra)}
+.preguntas summary{cursor:pointer;list-style:none;padding:17px 54px 17px 20px;font-weight:700;color:var(--marino);position:relative;border-radius:18px}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--pared-clara);display:grid;place-items:center;font-size:1.2rem;font-weight:700;line-height:1}
+.preguntas details[open] summary::after{content:"–"}
+.preguntas p{padding:0 20px 20px;color:var(--tinta-suave)}
+
+/* Horario y contacto */
+.abierto{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:28px}
+.cartel-horario{background:var(--marino);color:var(--blanco);padding:22px 30px;border-radius:24px;line-height:1.05;box-shadow:var(--sombra)}
+.cartel-horario small{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8FE0EC}
+.cartel-horario strong{display:block;font-size:clamp(2.1rem,9.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;margin-top:6px}
+.sello{width:120px;height:120px;border-radius:50%;background:linear-gradient(165deg,#31A6BB,#2090A6);color:var(--blanco);display:grid;place-content:center;text-align:center;font-weight:700;line-height:1.1;font-size:.8rem;flex:none;box-shadow:var(--sombra)}
+.sello b{display:block;font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+.contactos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media (max-width:820px){.contactos{grid-template-columns:1fr}}
+.contacto{background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--radio);padding:20px;text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.contacto:hover{transform:translateY(-3px);box-shadow:var(--sombra);border-color:var(--marino)}
+.contacto strong{font-size:1.2rem;font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--marino);overflow-wrap:anywhere}
+.contacto span{font-size:.93rem;color:var(--tinta-suave)}
+.contacto .placa{color:var(--marino);font-size:.72rem}
+.contacto em{font-style:normal;font-weight:700;color:var(--pared);margin-top:2px}
+.contacto em::after{content:" →"}
+
+footer{background:var(--tinta);color:#C9D3F5;text-align:center;font-size:.9rem;padding:30px 16px;margin-top:20px;border-radius:36px 36px 0 0}
+footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.15rem;display:block;margin-bottom:2px}
+
+/* Barra flotante en el móvil: lo que busca quien escanea el QR en la puerta */
+.barra{display:none}
+@media (max-width:640px){
+  body{padding-bottom:84px}
+  footer{margin-bottom:-84px;padding-bottom:110px}
+  .cima-llamar{display:none}
+  .barra{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:12px;right:12px;bottom:12px;background:rgba(24,36,107,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;z-index:5;box-shadow:0 12px 30px rgba(17,24,56,.35);padding:4px}
+  .barra a{color:var(--blanco);text-decoration:none;text-align:center;font-weight:700;font-size:.9rem;padding:14px 4px;border-radius:999px}
+  .barra a:first-child{background:var(--blanco);color:var(--marino)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .portada-rejilla > *{animation:none}
+  .marco img,.boton,.maquina,.contacto{transition:none}
+  .marco:hover img,.boton:hover,.maquina:hover,.contacto:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="borrador">Borrador: los precios son de ejemplo, pendientes de confirmar.</div>
+
+<nav class="cima" aria-label="Apartados">
+  <div class="ancho cima-fila">
+    <a class="marca" href="#inicio">La Colada <span>de Carmina</span></a>
+    <div class="cima-enlaces">
+      <a href="#precios">Precios</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#servicios">Qué puedes lavar</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Horario y contacto</a>
+    </div>
+    <a class="cima-llamar" href="tel:+34630204578">Llamar · 630 204 578</a>
+  </div>
+</nav>
+
+<header class="pared" id="inicio">
+  <div class="ancho portada">
+    <div class="portada-rejilla">
+      <div>
+        <span class="placa">Lavandería autoservicio</span>
+        <h1>La Colada <span>de Carmina</span></h1>
+        <p class="lema">Lava tu ropa en 30 minutos.</p>
+        <div class="avisos">
+          <span class="aviso" id="estado"><i></i><span id="estado-texto">Abierto de 8:00 a 22:00</span></span>
+        </div>
+        <div class="botones">
+          <a class="boton lleno" href="#precios">Ver precios</a>
+          <a class="boton" href="https://www.google.com/maps/search/?api=1&query=La+Colada+de+Carmina+Carrer+Jos%C3%A9+Mar%C3%ADa+Mortes+Lerma+19+Val%C3%A8ncia" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="marco"><img src="fotos/fachada.jpg" alt="Fachada de la lavandería, con el rótulo y el escaparate" width="800" height="800"></div>
+    </div>
+  </div>
+</header>
+
+<div class="datos">
+  <div class="ancho datos-rejilla">
+    <div><b>30 min</b><span>un lavado</span></div>
+    <div><b>16 kg</b><span>caben edredones</span></div>
+    <div><b>8 a 22 h</b><span>todos los días</span></div>
+  </div>
+</div>
+
+<main>
+  <section id="precios">
+    <div class="ancho">
+      <h2>Precios</h2>
+      <p class="entrada">Pagas por máquina, no por prenda. Llena la lavadora y listo.</p>
+      <div class="precios-rejilla">
+        <div class="marco"><img src="fotos/lavadoras.jpg" alt="Cuatro lavadoras de 12 y 16 kilos empotradas en la pared" width="800" height="800"></div>
+        <div>
+          <div class="elige">
+            <p class="elige-titulo">¿Qué traes hoy?</p>
+            <div class="elige-botones" role="group" aria-label="Qué traes hoy">
+              <button type="button" id="traes-colada" data-kg="12" aria-pressed="false">Colada semanal</button>
+              <button type="button" id="traes-toallas" data-kg="12" aria-pressed="false">Toallas</button>
+              <button type="button" id="traes-sabanas" data-kg="12" aria-pressed="false">Sábanas y fundas</button>
+              <button type="button" id="traes-mantas" data-kg="16" aria-pressed="false">Mantas</button>
+              <button type="button" id="traes-edredon" data-kg="16" aria-pressed="false">Edredón</button>
+              <button type="button" id="traes-cortinas" data-kg="16" aria-pressed="false">Cortinas</button>
+            </div>
+            <p class="elige-resultado" id="elige-resultado" aria-live="polite">Toca una opción y te decimos qué lavadora usar.</p>
+          </div>
+          <div class="maquinas">
+            <div class="maquina" data-maquina="12" data-precio="5"><span class="placa">Lavadora de 12 kg</span><div class="precio">5,00 €</div><p>La colada de toda la semana.</p></div>
+            <div class="maquina" data-maquina="16" data-precio="7"><span class="placa">Lavadora de 16 kg</span><div class="precio">7,00 €</div><p>Edredones, mantas y cortinas.</p></div>
+            <div class="maquina" data-secado="3"><span class="placa">Secadora</span><div class="precio">3,00 €</div><p>20 minutos de secado.</p></div>
+            <div class="maquina"><span class="placa">Secado extra</span><div class="precio">1,50 €</div><p>10 minutos más.</p></div>
+          </div>
+          <ul class="otros">
+            <li><span>Servicio de plancha</span><b>Consultar</b></li>
+            <li><span>Recogida y entrega</span><b>Consultar</b></li>
+          </ul>
+          <p class="nota">Precios con IVA incluido. Son de ejemplo hasta confirmar los reales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="marino">
+    <div class="ancho">
+      <h2>Cómo funciona</h2>
+      <p class="entrada">Cinco pasos, igual que en el cartel de la pared.</p>
+      <div class="pasos-rejilla">
+        <ol class="pasos">
+          <li><span class="n">1</span><div><h3>Mete la ropa</h3><p>Elige lavadora de 12 o de 16 kilos según lo que traigas.</p></div></li>
+          <li><span class="n">2</span><div><h3>Cierra la puerta</h3><p>Aprieta hasta que haga clic.</p></div></li>
+          <li><span class="n">3</span><div><h3>Elige el programa</h3><p>Según el tipo de ropa y la temperatura.</p></div></li>
+          <li><span class="n">4</span><div><h3>Paga en la máquina</h3><p>La lavadora arranca sola al pagar.</p></div></li>
+          <li><span class="n">5</span><div><h3>Recoge en 30 minutos</h3><p>Si quieres, pásala después a la secadora.</p></div></li>
+        </ol>
+        <div class="marco"><img src="fotos/secadoras.jpg" alt="Dos secadoras y toallas dobladas sobre la mesa" width="800" height="800"></div>
+      </div>
+      <div class="reloj">
+        <div>
+          <h3>¿Ya la has puesto en marcha?</h3>
+          <p>Pon el temporizador y vete tranquilo. Al volver a abrir esta página verás cuánto falta.</p>
+        </div>
+        <div class="reloj-botones">
+          <button type="button" id="reloj-lavado" data-min="30" data-nombre="El lavado">Lavado · 30 min</button>
+          <button type="button" id="reloj-secado" data-min="20" data-nombre="El secado">Secado · 20 min</button>
+        </div>
+        <div class="reloj-cuenta" id="reloj-cuenta" hidden>
+          <span class="reloj-tiempo" id="reloj-tiempo" role="timer">30:00</span>
+          <span id="reloj-texto" aria-live="polite"></span>
+          <button type="button" id="reloj-parar">Quitar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="pared">
+    <div class="ancho">
+      <h2>Qué puedes lavar</h2>
+      <p class="entrada">Lo que en la lavadora de casa no cabe, aquí sí.</p>
+      <div class="servicios-rejilla">
+        <div class="marco"><img src="fotos/atencion.jpg" alt="Interior de la lavandería, con una persona junto a las lavadoras" width="800" height="800"></div>
+        <div>
+          <ul class="cabe">
+            <li>Colada semanal</li><li>Mantas</li><li>Edredones</li><li>Fundas</li><li>Cortinas</li><li>Almohadas</li><li>Cojines</li><li>Toallas</li>
+          </ul>
+          <div class="extras">
+            <div class="extra"><h3>Servicio de plancha</h3><p>Nos dejas la ropa y te la llevas planchada.</p></div>
+            <div class="extra"><h3>Recogida y entrega</h3><p>Pasamos a por tu ropa y te la devolvemos lista. Infórmate en la tienda o por teléfono.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="ancho">
+      <h2>Preguntas de siempre</h2>
+      <div class="preguntas">
+        <details><summary>¿Cuánto tarda un lavado?</summary><p>Unos 30 minutos. Después puedes pasar la ropa a la secadora y llevártela lista para guardar.</p></details>
+        <details><summary>¿Abrís domingos y festivos?</summary><p>Sí. Abrimos de 8:00 a 22:00 los 365 días del año.</p></details>
+        <details><summary>¿Dónde lavo un edredón o una manta?</summary><p>En las lavadoras de 16 kg, que son las grandes.</p></details>
+        <details><summary>¿Me podéis planchar la ropa?</summary><p>Sí, tenemos servicio de plancha. Pregunta en la tienda o llama al 630 204 578.</p></details>
+        <details><summary>¿Recogéis la ropa en casa?</summary><p>Sí, hay servicio de recogida y entrega. Infórmate en la tienda o en el 630 204 578.</p></details>
+        <details><summary>¿Qué hago si una máquina falla?</summary><p>Llama al teléfono de incidencias, el 630 204 578, y te ayudamos.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="ancho">
+      <h2>Horario y contacto</h2>
+      <div class="abierto">
+        <div class="cartel-horario"><small>Abierto de</small><strong>8:00 a 22:00</strong></div>
+        <div class="sello"><div><b>365</b>días<br>del año</div></div>
+      </div>
+      <div class="contactos">
+        <a class="contacto" href="https://www.google.com/maps/search/?api=1&query=La+Colada+de+Carmina+Carrer+Jos%C3%A9+Mar%C3%ADa+Mortes+Lerma+19+Val%C3%A8ncia" target="_blank" rel="noopener">
+          <span class="placa">Dirección</span>
+          <strong>C/ José María Mortes Lerma, 19</strong>
+          <span>Patraix · 46014 València</span>
+          <em>Abrir en el mapa</em>
+        </a>
+        <a class="contacto" href="tel:+34630204578">
+          <span class="placa">Teléfono de incidencias</span>
+          <strong>630 204 578</strong>
+          <span>También para plancha y recogida</span>
+          <em>Llamar</em>
+        </a>
+        <a class="contacto" href="https://www.instagram.com/lacoladadecarmina" target="_blank" rel="noopener">
+          <span class="placa">Instagram</span>
+          <strong>@lacoladadecarmina</strong>
+          <span>Novedades y promociones</span>
+          <em>Ver el perfil</em>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><b>La Colada de Carmina</b>Lavandería autoservicio · Patraix, València</footer>
+
+<nav class="barra" aria-label="Accesos rápidos">
+  <a href="#precios">Precios</a>
+  <a href="tel:+34630204578">Llamar</a>
+  <a href="https://www.instagram.com/lacoladadecarmina" target="_blank" rel="noopener">Instagram</a>
+</nav>
+
+<script>
+// Dice si está abierto ahora mismo, con la hora de Valencia.
+(function(){
+  var ABRE = 8, CIERRA = 22;
+  try{
+    var partes = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',hour:'numeric',hour12:false}).formatToParts(new Date());
+    var hora;
+    partes.forEach(function(p){ if(p.type==='hour') hora = parseInt(p.value,10) % 24; });
+    var abierto = hora >= ABRE && hora < CIERRA;
+    document.getElementById('estado').classList.toggle('cerrado', !abierto);
+    document.getElementById('estado-texto').textContent = abierto ? 'Abierto ahora · hasta las 22:00' : 'Cerrado ahora · abre a las 8:00';
+  }catch(e){}
+})();
+
+// ¿Qué traes hoy? Marca la lavadora recomendada y suma lavado y secado.
+(function(){
+  var botones = document.querySelectorAll('.elige-botones button');
+  var salida = document.getElementById('elige-resultado');
+  var secado = parseFloat(document.querySelector('[data-secado]').getAttribute('data-secado'));
+  function euros(n){ return n.toFixed(2).replace('.',',') + ' €'; }
+  botones.forEach(function(boton){
+    boton.addEventListener('click', function(){
+      var kg = boton.getAttribute('data-kg');
+      botones.forEach(function(b){ b.setAttribute('aria-pressed', b === boton ? 'true' : 'false'); });
+      document.querySelectorAll('[data-maquina]').forEach(function(m){
+        m.classList.toggle('recomendada', m.getAttribute('data-maquina') === kg);
+      });
+      var precio = parseFloat(document.querySelector('[data-maquina="'+kg+'"]').getAttribute('data-precio'));
+      salida.textContent = 'Usa la lavadora de '+kg+' kg. Lavar y secar: '+euros(precio + secado)+' y unos 50 minutos.';
+    });
+  });
+})();
+
+// Temporizador: guarda la hora de fin para que siga contando si cierras y vuelves a abrir.
+(function(){
+  var CLAVE = 'colada-reloj', caja = document.getElementById('reloj-cuenta');
+  var tiempo = document.getElementById('reloj-tiempo'), texto = document.getElementById('reloj-texto');
+  var titulo = document.title, reloj = null, intervalo = null;
+  function guardar(v){ try{ v ? localStorage.setItem(CLAVE, JSON.stringify(v)) : localStorage.removeItem(CLAVE); }catch(e){} }
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+  function pintar(){
+    if(!reloj) return;
+    var falta = Math.round((reloj.fin - Date.now()) / 1000);
+    if(falta <= 0){
+      tiempo.textContent = '00:00';
+      texto.textContent = reloj.nombre + ' ha terminado. Ya puedes recoger tu ropa.';
+      caja.classList.add('lista');
+      document.title = '¡Lista! · ' + titulo;
+      clearInterval(intervalo);
+      return;
+    }
+    tiempo.textContent = dos(Math.floor(falta / 60)) + ':' + dos(falta % 60);
+    texto.textContent = reloj.nombre + ' está en marcha.';
+  }
+  function arrancar(nuevo){
+    reloj = nuevo; caja.hidden = false; caja.classList.remove('lista');
+    clearInterval(intervalo); intervalo = setInterval(pintar, 500); pintar();
+  }
+  function parar(){
+    reloj = null; clearInterval(intervalo); caja.hidden = true; document.title = titulo; guardar(null);
+  }
+  document.querySelectorAll('.reloj-botones button').forEach(function(boton){
+    boton.addEventListener('click', function(){
+      var nuevo = {fin: Date.now() + parseInt(boton.getAttribute('data-min'),10) * 60000, nombre: boton.getAttribute('data-nombre')};
+      guardar(nuevo); arrancar(nuevo);
+    });
+  });
+  document.getElementById('reloj-parar').addEventListener('click', parar);
+  try{
+    var previo = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+    if(previo && previo.fin && Date.now() - previo.fin < 2 * 3600000) arrancar(previo); else guardar(null);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
