@@ -191,15 +191,77 @@ section.pared > .ancho{background:radial-gradient(700px 400px at 100% 0,#5CC3D3 
 footer{background:var(--tinta);color:#C9D3F5;text-align:center;font-size:.9rem;padding:30px 16px;margin-top:20px;border-radius:36px 36px 0 0}
 footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.15rem;display:block;margin-bottom:2px}
 
-/* Barra flotante en el móvil: lo que busca quien escanea el QR en la puerta */
+/* ---------- Móvil ---------- */
 .barra{display:none}
+@media (hover:none){.maquina:hover,.contacto:hover,.boton:hover{transform:none;box-shadow:none}.marco:hover img{transform:none}}
 @media (max-width:640px){
-  body{padding-bottom:84px}
-  footer{margin-bottom:-84px;padding-bottom:110px}
-  .cima-llamar{display:none}
-  .barra{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:12px;right:12px;bottom:12px;background:rgba(24,36,107,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;z-index:5;box-shadow:0 12px 30px rgba(17,24,56,.35);padding:4px}
-  .barra a{color:var(--blanco);text-decoration:none;text-align:center;font-weight:700;font-size:.9rem;padding:14px 4px;border-radius:999px}
-  .barra a:first-child{background:var(--blanco);color:var(--marino)}
+  html{-webkit-tap-highlight-color:transparent}
+  body{padding-bottom:86px;font-size:16.5px}
+  .cima{display:none}
+  section{padding:42px 0;scroll-margin-top:12px}
+  footer{margin-bottom:-86px;padding-bottom:112px;border-radius:28px 28px 0 0}
+
+  /* Portada más corta: la foto entra en la primera pantalla */
+  header.pared{border-radius:0 0 28px 28px}
+  .portada{padding:26px 0 78px}
+  .portada-rejilla{gap:24px}
+  h1{margin-top:14px}
+  .lema{margin-top:12px}
+  .avisos{margin-top:16px}
+  .botones{margin-top:18px;display:grid;grid-template-columns:1fr 1fr}
+  .boton{padding:12px 10px}
+  .marco{border-radius:22px;border-width:5px}
+  .marco img{aspect-ratio:4/3}
+
+  .datos{margin-top:-50px}
+  .datos-rejilla{gap:8px}
+  .datos-rejilla > div{padding:14px 4px;border-radius:18px}
+  .datos b{font-size:1.3rem}
+  .datos span{font-size:.78rem;margin-top:4px}
+
+  /* Precios: opciones en una fila que se desliza y máquinas en filas compactas */
+  .precios-rejilla > *{min-width:0}
+  .elige-botones{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:2px 16px 6px;scrollbar-width:none}
+  .elige-botones::-webkit-scrollbar{display:none}
+  .elige-botones button{flex:none}
+  .maquinas{grid-template-columns:1fr;gap:8px}
+  .maquina{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:14px 16px;border-radius:18px}
+  .maquina .placa{grid-column:1;justify-self:start}
+  .maquina .precio{grid-column:2;grid-row:1 / span 2;font-size:1.75rem}
+  .maquina p{grid-column:1}
+  .maquina.recomendada::after{grid-column:1 / -1}
+
+  /* Paneles */
+  section.marino,section.pared{padding:10px 0}
+  section.marino > .ancho,section.pared > .ancho{border-radius:28px;padding:30px 20px}
+  .pasos{gap:16px}
+  .pasos li{grid-template-columns:40px 1fr;gap:14px}
+  .pasos .n{width:40px;height:40px;font-size:1.1rem}
+  .reloj{padding:20px;margin-top:28px}
+  .reloj-botones{display:grid;grid-template-columns:1fr 1fr}
+  .reloj button{padding:8px 6px;font-size:.86rem;white-space:nowrap}
+  .extras{grid-template-columns:1fr;gap:8px}
+  .extra{padding:16px 18px;border-radius:18px}
+
+  /* Horario en una sola fila y contactos con botón grande */
+  .abierto{flex-wrap:nowrap;gap:10px}
+  .cartel-horario{flex:1;padding:18px;border-radius:20px}
+  .cartel-horario strong{font-size:clamp(1.5rem,7.6vw,2.1rem)}
+  .sello{width:92px;height:92px;font-size:.68rem}
+  .sello b{font-size:1.7rem}
+  .contactos{gap:8px;margin-top:22px}
+  .contacto{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:16px;border-radius:18px}
+  .contacto .placa{grid-column:1;justify-self:start}
+  .contacto strong{grid-column:1;font-size:1.05rem}
+  .contacto span:not(.placa){grid-column:1}
+  .contacto em{grid-column:2;grid-row:1 / span 3;background:var(--marino);color:var(--blanco);padding:11px 16px;border-radius:999px;font-size:.9rem;margin:0;white-space:nowrap}
+  .contacto em::after{content:""}
+
+  /* Barra flotante: marca el apartado en el que estás */
+  .barra{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:fixed;left:10px;right:10px;bottom:10px;background:rgba(24,36,107,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;z-index:5;box-shadow:0 12px 30px rgba(17,24,56,.35);padding:5px}
+  .barra a{color:var(--blanco);text-decoration:none;text-align:center;font-weight:700;font-size:.88rem;padding:13px 2px;border-radius:999px;transition:background .2s ease,color .2s ease}
+  .barra a.activa{background:var(--blanco);color:var(--marino)}
+  .barra a.llamar{background:#8FE0EC;color:var(--marino)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -250,7 +312,7 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
 <div class="datos">
   <div class="ancho datos-rejilla">
     <div><b>30 min</b><span>un lavado</span></div>
-    <div><b>16 kg</b><span>caben edredones</span></div>
+    <div><b>16 kg</b><span>para edredones</span></div>
     <div><b>8 a 22 h</b><span>todos los días</span></div>
   </div>
 </div>
@@ -283,7 +345,6 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
           </div>
           <ul class="otros">
             <li><span>Servicio de plancha</span><b>Consultar</b></li>
-            <li><span>Recogida y entrega</span><b>Consultar</b></li>
           </ul>
           <p class="nota">Precios con IVA incluido. Son de ejemplo hasta confirmar los reales.</p>
         </div>
@@ -335,7 +396,7 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
           </ul>
           <div class="extras">
             <div class="extra"><h3>Servicio de plancha</h3><p>Nos dejas la ropa y te la llevas planchada.</p></div>
-            <div class="extra"><h3>Recogida y entrega</h3><p>Pasamos a por tu ropa y te la devolvemos lista. Infórmate en la tienda o por teléfono.</p></div>
+            <div class="extra"><h3>¿Dudas con una máquina?</h3><p>Pregúntanos en la tienda o llama al teléfono de incidencias.</p></div>
           </div>
         </div>
       </div>
@@ -350,7 +411,6 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
         <details><summary>¿Abrís domingos y festivos?</summary><p>Sí. Abrimos de 8:00 a 22:00 los 365 días del año.</p></details>
         <details><summary>¿Dónde lavo un edredón o una manta?</summary><p>En las lavadoras de 16 kg, que son las grandes.</p></details>
         <details><summary>¿Me podéis planchar la ropa?</summary><p>Sí, tenemos servicio de plancha. Pregunta en la tienda o llama al 630 204 578.</p></details>
-        <details><summary>¿Recogéis la ropa en casa?</summary><p>Sí, hay servicio de recogida y entrega. Infórmate en la tienda o en el 630 204 578.</p></details>
         <details><summary>¿Qué hago si una máquina falla?</summary><p>Llama al teléfono de incidencias, el 630 204 578, y te ayudamos.</p></details>
       </div>
     </div>
@@ -368,12 +428,12 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
           <span class="placa">Dirección</span>
           <strong>C/ José María Mortes Lerma, 19</strong>
           <span>Patraix · 46014 València</span>
-          <em>Abrir en el mapa</em>
+          <em>Ver mapa</em>
         </a>
         <a class="contacto" href="tel:+34630204578">
           <span class="placa">Teléfono de incidencias</span>
           <strong>630 204 578</strong>
-          <span>También para plancha y recogida</span>
+          <span>También para el servicio de plancha</span>
           <em>Llamar</em>
         </a>
         <a class="contacto" href="https://www.instagram.com/lacoladadecarmina" target="_blank" rel="noopener">
@@ -390,9 +450,10 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
 <footer><b>La Colada de Carmina</b>Lavandería autoservicio · Patraix, València</footer>
 
 <nav class="barra" aria-label="Accesos rápidos">
-  <a href="#precios">Precios</a>
-  <a href="tel:+34630204578">Llamar</a>
-  <a href="https://www.instagram.com/lacoladadecarmina" target="_blank" rel="noopener">Instagram</a>
+  <a href="#precios" data-seccion="precios">Precios</a>
+  <a href="#como-funciona" data-seccion="como-funciona">Pasos</a>
+  <a href="#preguntas" data-seccion="preguntas">Dudas</a>
+  <a class="llamar" href="tel:+34630204578">Llamar</a>
 </nav>
 
 <script>
@@ -467,6 +528,18 @@ footer b{color:var(--blanco);font-weight:800;letter-spacing:-.02em;font-size:1.1
     var previo = JSON.parse(localStorage.getItem(CLAVE) || 'null');
     if(previo && previo.fin && Date.now() - previo.fin < 2 * 3600000) arrancar(previo); else guardar(null);
   }catch(e){}
+})();
+
+// Barra del móvil: resalta el apartado que tienes en pantalla.
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var enlaces = document.querySelectorAll('.barra a[data-seccion]');
+  var visibles = {};
+  var mirador = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){ visibles[e.target.id] = e.isIntersecting; });
+    enlaces.forEach(function(a){ a.classList.toggle('activa', !!visibles[a.getAttribute('data-seccion')]); });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  enlaces.forEach(function(a){ var s = document.getElementById(a.getAttribute('data-seccion')); if(s) mirador.observe(s); });
 })();
 </script>
 </body>
